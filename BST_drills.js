@@ -74,8 +74,66 @@ function isItBinary(tree) {
   return true;
 }
 
-console.log('But is it binary?!?!?!0101 ' , isItBinary(BST),'!');
+//console.log('But is it binary?!?!?!0101 ' , isItBinary(BST),'!');
 
 let newestBST = 'blah';
 
-console.log('But is it binary?!?!?!0101 ' , isItBinary(newestBST),'!');
+//console.log('But is it binary?!?!?!0101 ' , isItBinary(newestBST),'!');
+
+
+//7
+function thirdHighest(tree){
+  let current = tree;
+  let largest = null;
+  let count = 0;
+
+  while (current !== null) {
+    if (current.right === null) {
+      if (count++ === 3) {
+        largest = current
+      }
+      current = current.left
+    } else {
+      let successor = current.right;
+      while(successor.left !== null && successor.left !== current) {
+        successor = successor.left
+      }
+      if (successor.left === null){
+        successor.left = current;
+        current = current.right;
+      } else {
+        successor.left === null;
+        if (count++ === 3){
+          largest === current;
+
+        }
+        current = current.left;
+      }
+    }
+  } return largest;
+}
+    
+
+
+
+//   if (tree.left === null && tree.right === null) {
+//     return tree.parent;
+//   } else if (tree.right) {
+//     return thirdHighest(tree.right) 
+//   }
+// }
+
+let checkingThird = new BinarySearchTree();
+checkingThird.parent = 2;
+checkingThird.left === 1;
+checkingThird.right === 3;
+checkingThird.insert(1);
+checkingThird.insert(2);
+checkingThird.insert(3);
+
+
+//on the node all the way to the bottom-right, this.parent.left
+
+//console.log(BST.right);
+//console.log(checkingThird);
+console.log(thirdHighest('checking third ' , checkingThird));
