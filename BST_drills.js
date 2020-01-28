@@ -49,43 +49,33 @@ function findHeight(tree) {
 
 //6 
 function isItBinary(tree) {
+  let lastNode = tree;
+  // if (typeof tree === BinarySearchTree){
+  //   return false;
+  // }
+
   if (tree === null) {
-    return false;
-  } else if (tree.left === null || tree.right === null){
-    return true;
-  } else if (tree.right.key > tree) {
-    isItBinary(tree.right);
-    //return true;
-  }else if (tree.left.key < tree){
-    isItBinary(tree.left);
-    //return true;
-  } else {
     return true;
   }
+  
+  if (!isItBinary(tree.left)) {
+    return false;
+  }
+
+  if (tree !== null && tree.data <= tree){
+    return false;
+  } 
+  console.log('Current Node : ', tree.data);
+  lastNode = tree.data;
+
+  if (!isItBinary(tree.right)){
+    return false;
+  }
+  return true;
 }
 
-let newTree = new BinarySearchTree();
-newTree.insert(1, null);
-console.log(isItBinary(newTree));
+console.log('But is it binary?!?!?!0101 ' , isItBinary(BST),'!');
 
+let newestBST = 'blah';
 
-//   let left = tree.left;
-//   let right = tree.right;
-//   if ((left < tree && right > tree)) {
-//     isItBinary(left);
-//     isItBinary(right);
-//     return true;
-//   } else if (left === null) {
-//     if (right > tree) {
-//       isItBinary(right);
-//     } else {
-//       return false;
-//     }
-//   } else if (right === null) {
-//     if (left < tree) {
-//       isItBinary(left);
-//     } else {
-//       return false;
-//     }
-//   }
-// }
+console.log('But is it binary?!?!?!0101 ' , isItBinary(newestBST),'!');
