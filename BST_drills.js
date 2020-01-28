@@ -37,6 +37,7 @@ newBST.insert('N');
 
 
 
+
 function findHeightTwo(tree) {
   if (tree === null) {
     return -1;
@@ -172,23 +173,15 @@ function same(arr1, arr2){
       rightSide2.push(nextIndexOfArr2);
     } else {
       leftSide2.push(nextIndexOfArr2);
-    }
+    } 
+    
     if (leftSide1 === leftSide2 && rightSide1 === rightSide2) {
       return true;
-    } else {
-      return false;
     }
-  
   }
-
-  const array1 = [3, 5, 4, 6, 1, 0, 2];
-  const array2 = [3, 1, 5, 2, 4, 6, 0];
-  console.log('same? ' , same(array1, array2));
-
-
-
-
-
-
 }
+const array1 = [3, 5, 4, 6, 1, 0, 2];
+const array2 = [3, 1, 5, 2, 4, 6, 0];
 
+
+console.log('same? ' , same(array1, array2));
