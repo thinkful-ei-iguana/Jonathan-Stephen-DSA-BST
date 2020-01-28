@@ -174,7 +174,7 @@ function same(arr1, arr2){
       leftSide2.push(nextIndexOfArr2);
     }
     if (leftSide1 === leftSide2 && rightSide1 === rightSide2) {
-      return true
+      return true;
     } else {
       return false;
     }
