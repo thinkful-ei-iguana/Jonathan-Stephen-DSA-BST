@@ -1,6 +1,6 @@
 const BinarySearchTree = require('./BinarySearchTree');
 
-let BST = new BinarySearchTree()
+let BST = new BinarySearchTree();
 BST.insert(3);
 BST.insert(1);
 BST.insert(4);
@@ -12,7 +12,7 @@ BST.insert(7);
 
 //console.log('here is BST ' , BST);
 
-let newBST = new BinarySearchTree()
+let newBST = new BinarySearchTree();
 newBST.insert('E');
 newBST.insert('A');
 newBST.insert('S');
@@ -44,4 +44,48 @@ function findHeight(tree) {
     return right + 1;
   }
 }
-console.log('this is the height ' , findHeight(BST));
+//console.log('this is the height ' , findHeight(BST));
+
+
+//6 
+function isItBinary(tree) {
+  if (tree === null) {
+    return false;
+  } else if (tree.left === null || tree.right === null){
+    return true;
+  } else if (tree.right.key > tree) {
+    isItBinary(tree.right);
+    //return true;
+  }else if (tree.left.key < tree){
+    isItBinary(tree.left);
+    //return true;
+  } else {
+    return true;
+  }
+}
+
+let newTree = new BinarySearchTree();
+newTree.insert(1, null);
+console.log(isItBinary(newTree));
+
+
+//   let left = tree.left;
+//   let right = tree.right;
+//   if ((left < tree && right > tree)) {
+//     isItBinary(left);
+//     isItBinary(right);
+//     return true;
+//   } else if (left === null) {
+//     if (right > tree) {
+//       isItBinary(right);
+//     } else {
+//       return false;
+//     }
+//   } else if (right === null) {
+//     if (left < tree) {
+//       isItBinary(left);
+//     } else {
+//       return false;
+//     }
+//   }
+// }
